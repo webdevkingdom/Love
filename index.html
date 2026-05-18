@@ -1,0 +1,211 @@
+<!-- Font Awesome CDN -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+crossorigin="anonymous"/>
+<title>RASIKA</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    background:#eaeaea;
+    overflow-x:hidden;
+    font-family: system-ui;
+}
+
+.container{
+    width:90%;
+    max-width:1300px;
+    height:95vh;
+    margin:auto;
+    margin-top:5vh;
+    background:#f5f5f5;
+    box-shadow:0 30px 50px #dbdbdb;
+    position:relative;
+}
+
+.slide .item{
+    width:500px;
+    height:300px;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    border-radius:20px;
+    background-size:cover;
+    background-position:center;
+    box-shadow:0 20px 40px rgba(0,0,0,0.3);
+    transition:0.5s;
+}
+
+.slide .item:nth-child(1),
+.slide .item:nth-child(2){
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-radius:0;
+    transform:none;
+}
+
+.slide .item:nth-child(3){ left:50%; }
+.slide .item:nth-child(4){ left:calc(50% + 220px); }
+.slide .item:nth-child(5){ left:calc(50% + 440px); }
+
+.slide .item:nth-child(n+6){
+    left:calc(50% + 660px);
+    opacity:0;
+}
+
+.item .content{
+    position:absolute;
+    top:50%;
+    left:50px;
+    width:100%;
+    background-color: #dbdbdb;
+    color:black;
+    transform:translateY(-50%);
+    display:none;
+}
+
+.slide .item:nth-child(2) .content{
+    display:block;
+}
+
+.content .name{
+    font-size:36px;
+    font-weight:bold;
+    animation:fadeUp 1s forwards;
+}
+.content .des{
+    margin-top:10px;
+    font-size:16px;
+    line-height:1.6;
+    animation:fadeUp 1.3s forwards;
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.button{
+    position:absolute;
+    bottom:15px;
+    width:100%;
+    text-align:center;
+}
+.button button{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:1px solid #000;
+    cursor:pointer;
+    margin:0 10px;
+    background:#fff;
+}
+.button button:hover{
+    background:#000;
+    color:#fff;
+}
+
+/* 📱 Responsive */
+@media(max-width:768px){
+    .slide .item{
+        width:100%;
+        height:100%;
+        position:absolute;
+        left:0 !important;
+        opacity:0;
+    }
+    .slide .item:nth-child(2){
+        opacity:1;
+    }
+    .item .content{
+        width:85%;
+        left:20px;
+    }
+}
+</style>
+
+<div class="container">
+    <div class="slide">
+
+        <div class="item" style="background-image:url(images/img2.jpeg);">
+            <div class="content">
+                <div class="name"> My Love</div>
+                <div class="des">
+                    She is the person who understands me without words and stays by my side  <br>no matter what.
+                </div>
+            </div>
+        </div>
+
+        <div class="item" style="background-image:url(images/img3.jpeg);">
+            <div class="content">
+                <div class="name">The Beauty Queen</div>
+                <div class="des">
+                    You makes every moment lighter, every problem smaller, and every day brighter.
+                </div>
+            </div>
+        </div>
+
+        <div class="item" style="background-image:url(images/img1.jpeg);">
+            <div class="content">
+                <div class="name">Pure Heart</div>
+                <div class="des">
+                    Her kindness, honesty, and care make her truly one of a kind.
+                </div>
+            </div>
+        </div>
+
+        <div class="item" style="background-image:url(images/img5.jpeg);">
+            <div class="content">
+                <div class="name">Forever Bond</div>
+                <div class="des">
+                    No matter where life takes us, our friendship and Relationship will always remain strong.
+                </div>
+            </div>
+        </div>
+
+        <div class="item" style="background-image:url(images/img6.jpeg);">
+            <div class="content">
+                <div class="name">Happiness</div>
+                <div class="des">
+                    With you around, laughter comes easily and life feels beautiful.
+                </div>
+            </div>
+        </div>
+
+        <div class="item" style="background-image:url(images/img7.jpeg);">
+            <div class="content" >
+                <div class="name">Always Grateful</div>
+                <div class="des">
+                    I’m thankful every single day to have a girlfriend like her.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="button">
+        <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+</div>
+
+<script>
+let next = document.querySelector('.next');
+let prev = document.querySelector('.prev');
+
+next.onclick = () => {
+    let items = document.querySelectorAll('.item');
+    document.querySelector('.slide').appendChild(items[0]);
+};
+
+prev.onclick = () => {
+    let items = document.querySelectorAll('.item');
+    document.querySelector('.slide').prepend(items[items.length - 1]);
+};
+</script>
